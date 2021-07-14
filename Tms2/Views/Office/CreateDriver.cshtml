@@ -1,0 +1,39 @@
+﻿@model DriverModel
+<script src="~/js/data-validation.js"></script>
+
+<div style="margin: 20px;">
+    <h4>Регистрация нового водителя</h4>
+    <form name="inn-form" method="post" action="newdriver" onsubmit="return innvalidate()">
+        <div style="width: auto; padding: 20px;">
+            <div style="width: 50%; border-radius: 15px; border: 2px solid #73AD21; padding: 20px;">
+                <h5>Персональные данные</h5>
+                <div class="form-group">
+                    <label for="surname">Фамилия</label>
+                    <input type="text" class="form-control" id="surname" placeholder="Фамилия водителя" name="Surname" asp-for="Surname">
+                </div>
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" class="form-control" id="name" placeholder="Имя водителя" name="Name" asp-for="Name">
+                </div>
+                <div class="form-group">
+                    <label for="patronymic">Отчество</label>
+                    <input type="text" class="form-control" id="patronymic" placeholder="Отчество водителя" name="Patronymic" asp-for="Patronymic">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Телефон водителя" name="Phone" asp-for="Phone">
+                </div>
+                <h5>Этот водитель сотрудник компаний:</h5>
+                <h6 style="padding-bottom: 10px;">Отметьте нужные</h6>
+                @foreach (var company in Model.Companies)
+                {
+            <div class="form-check">                
+                @Html.EditorFor(m => m.CompaniesSelect[company.Key])
+                <label class="form-check-label" for="check-@company.Key">@company.Value</label> 
+            </div>                    
+                }
+                <button id="update-profile-button" type="submit" class="btn btn-primary" style="margin-top: 20px;">Зарегистрировать</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+﻿@model OfficeModel
+
+<div class="row">
+    <partial name="_ManageOffice" model="@Model" />
+    <div class="col" style="width: 100%; margin-right: 20px;">
+        <div class="row" style="width: 100%; text-align:right;">
+            <div class="col" style="text-align:left;">
+                <h4>Водители</h4>
+            </div>
+            <div class="col" style="text-align: right">
+                <a id="new-company-button" class="btn btn-primary" href="createDriver">Новый водитель</a>
+            </div>
+        </div>
+        <div class="container" style="float: left;">
+            @foreach (var c in Model.Drivers)
+            {
+                <div class="row" style="border-bottom: 1px solid gray; cursor: @Model.GetCursor(c.Item1);" @Model.OpenCompany(c.Item2)>
+                    <div class="col" style="width: 30em;">@c.Item1</div>
+                    <div class="col">@c.Item2</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

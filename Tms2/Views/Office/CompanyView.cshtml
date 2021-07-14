@@ -1,0 +1,20 @@
+﻿@model CompanyModel
+<div class="col" style="text-align: left">
+    <h4>
+        <a id="new-company-button" class="btn btn-primary" href="Companies"><</a>
+    </h4>
+</div>
+<div style="width: auto; padding: 20px;">
+    <div style="width: 100%; border-radius: 15px; border: 2px solid #73AD21; padding: 20px;">
+        <h4>Информация о компании</h4>
+        <h6>Полное название</h6>
+        <h5>@Model.CompanyNameFull</h5>
+        <h6>Краткое наименование</h6>
+        <h5>@Model.CompanyShortName</h5>
+        <h6>ИНН</h6>
+        <h5>@Model.Inn</h5>
+        <h6>КПП</h6>
+        <h5>@Model.Kpp</h5>
+    </div>
+</div>
+

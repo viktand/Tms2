@@ -1,0 +1,15 @@
+﻿@model OfficeModel
+    <script src="~/js/data-validation.js"></script>
+
+    <div style="margin: 20px;">
+        <h4>Создание новой компаниями</h4>
+        <h5>Укажите ИНН компании</h5>
+        <div class="col-md-6">
+            <form name="inn-form" method="post" action="newcompany" onsubmit="return innvalidate()">
+                <div class="form-group">
+                    <input name="Inn" asp-for="Inn" class="form-control"/>
+                </div>
+                <button id="update-profile-button" type="submit" class="btn btn-primary">Создать</button>
+            </form>
+        </div>
+    </div>
